@@ -164,7 +164,7 @@ const render = Matter.Render.create({
   element: document.querySelector('.game-world'), // Attach to the game-world div
   engine: engine,
   options: {
-    width: 800,  // Set appropriate dimensions
+    width: 600,  // Set appropriate dimensions
     height: 600,
     wireframes: false, // Use full-color rendering
     background: '#4e6882'
@@ -172,9 +172,9 @@ const render = Matter.Render.create({
 });
 
 // 4. Tworzenie obiektów fizycznych (np. prostokąty, koła, itp.)
-const ground = Bodies.rectangle(400, 600, 810, 60, { isStatic: true,restitution: 0.9, }); // Statyczna podstawa
+const ground = Bodies.rectangle(300, 600, 610, 60, { isStatic: true,restitution: 0.9, }); // Statyczna podstawa
 const leftBorder = Bodies.rectangle(0,200,60,800, { isStatic: true,restitution: 0.9, });
-const rightBorder = Bodies.rectangle(800,200,60,800, { isStatic: true,restitution: 0.9, });
+const rightBorder = Bodies.rectangle(600,200,60,800, { isStatic: true,restitution: 0.9, });
 
 // 5. Dodanie obiektów do świata
 World.add(world, [ground,leftBorder,rightBorder]);
