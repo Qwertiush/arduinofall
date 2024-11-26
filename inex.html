@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykład Matter.js</title>
+    <!-- Dodanie Matter.js z CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.17.1/build/matter.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="custom-cursor">
+        <img id="cursor-img" src="graphics/rezystor.png" alt="Cursor" />
+    </div>
+    <div id="pop-up">
+        <div id="pop-up-header">
+            <h2 id="pop-up-element-name">Nazwa elementu</h2>
+            <div id="pop-up-close-btn">X</div>
+        </div>
+        <div id="pop-up-element-content">
+            <img id="pop-up-element-img" src="" alt="Nope">
+            <p id="pop-up-element-text">Opis elementu</p>
+        </div>
+    </div>
+    <div class="app-container">
+        <div class="game-world">
+          <!-- The Matter.js canvas will be placed here -->
+        </div>
+        <div id="sidebar" class="sidebar">
+            <h2>Odblokowane elementy:</h2>
+        </div>
+      </div>      
+    <script src="scripts.js"></script>
+</body>
+</html>
