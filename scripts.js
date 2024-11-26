@@ -259,6 +259,7 @@ var canClick = true;
 var popUpActive = false;
 var popUpActiveElementID = 0;
 
+const fallHight = 0;
 var mousePos = [];
 var techElements = [0,1];
 addTechElement('sidebar',textures[0], circles[0].name, 0, handleTechElementClick);
@@ -305,7 +306,7 @@ addEventListener("click", (event) => {
   if (isInsideWorld) {
     console.log("click w obszarze świata");
 
-    AddCircle(mousePos, activeCircle);
+    AddCircle([mousePos[0],fallHight], activeCircle);
     activeCircle = Math.floor(Math.random() * maxLen);
 
     cursorImage.style.width = `${circles[activeCircle].body.circleRadius*2}px`;
