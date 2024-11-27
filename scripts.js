@@ -166,7 +166,7 @@ function setUpRender (){
       element: document.querySelector('.game-world'), // Attach to the game-world div
       engine: engine,
       options: {
-        width: 400,  // Set appropriate dimensions
+        width: window.innerWidth,  // Set appropriate dimensions
         height: 600,
         wireframes: false, // Use full-color rendering
         background: '#4e6882'
@@ -195,9 +195,9 @@ var rightBorder = Bodies.rectangle(600,200,60,800, { isStatic: true,restitution:
 
 function setUpWorldElements(){
   if(window.innerWidth <= 1080){
-    ground = Bodies.rectangle(200, 600, 410, 60, { isStatic: true,restitution: 0.9, });
+    ground = Bodies.rectangle(window.innerWidth/2, 600, window.innerWidth, 60, { isStatic: true,restitution: 0.9, });
     leftBorder = Bodies.rectangle(0,200,60,800, { isStatic: true,restitution: 0.9, });
-    rightBorder = Bodies.rectangle(400,200,60,800, { isStatic: true,restitution: 0.9, });
+    rightBorder = Bodies.rectangle(window.innerWidth,200,60,800, { isStatic: true,restitution: 0.9, });
   }
 }
 
