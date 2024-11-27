@@ -303,15 +303,21 @@ cursorImage.src = textures[activeCircle];
 
 const canvas = render.canvas; // Pobierz element canvas z renderera
 
+const rect = canvas.getBoundingClientRect();
+
 addEventListener("mousemove", (event) => {
   mousePos = getMouseWorldPosition(event);
-  if(!popUpActive){
-    customCursor.style.left = `${event.clientX}px`;
-    customCursor.style.top = `${event.clientY}px`;
+  //customCursor.style.left = `${event.clientX}px`;
+  customCursor.style.top = `${50}px`;
+
+  if(event.clientX > rect.right){
+    customCursor.style.left = rect.right;
+  }
+  else if(event.clientX < rect.left){
+    customCursor.style.left = rect.left;
   }
   else{
-    customCursor.style.left = `${50000}px`;
-    customCursor.style.top = `${50000}px`;
+    customCursor.style.left = `${event.clientX}px`;
   }
 });
 
@@ -322,7 +328,6 @@ addEventListener("click", (event) => {
     return;
   }
   // Pobierz granice canvas
-  const rect = canvas.getBoundingClientRect();
 
   // Sprawdź, czy kliknięcie jest wewnątrz granic canvas
   const isInsideWorld = event.clientX >= rect.left &&
@@ -331,8 +336,6 @@ addEventListener("click", (event) => {
                         event.clientY <= rect.bottom;
 
   if (isInsideWorld) {
-    console.log("click w obszarze świata");
-
     AddCircle([mousePos[0],fallHight], activeCircle);
     activeCircle = Math.floor(Math.random() * maxLen);
 
@@ -340,8 +343,6 @@ addEventListener("click", (event) => {
     cursorImage.style.height = `${circles[activeCircle].body.circleRadius*2}px`;
     cursorImage.src = textures[activeCircle];
 
-  } else {
-    console.log("click poza obszarem świata");
   }
 });
 
