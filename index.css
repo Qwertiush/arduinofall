@@ -141,4 +141,11 @@ body {
   .sidebar {
     flex: none; /* Możesz dostosować proporcje, np. dać stałą wysokość */
   }
+  #pop-up {
+    width: 95vw;
+    height: 90vh;
+  }
+  #pop-up-element-content {
+    flex-direction: column;
+  }
 }
