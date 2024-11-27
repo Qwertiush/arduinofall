@@ -296,6 +296,7 @@ var activeCircle = Math.floor(Math.random() * maxLen);
 
 const customCursor = document.getElementById('custom-cursor');
 const cursorImage = document.getElementById('cursor-img');
+customCursor.style.top = `${50}px`;
 
 cursorImage.style.width = `${circles[activeCircle].body.circleRadius*2}px`;
 cursorImage.style.height = `${circles[activeCircle].body.circleRadius*2}px`;
