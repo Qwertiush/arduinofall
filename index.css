@@ -140,6 +140,5 @@ body {
   
   .sidebar {
     flex: none; /* Możesz dostosować proporcje, np. dać stałą wysokość */
-    width: 100%; /* Sidebar zajmuje całą szerokość w kolumnowym układzie */
   }
 }
