@@ -159,22 +159,49 @@ function loadTextures() {
 const engine = Engine.create();
 const world = engine.world;
 
-// 3. Ustawienie renderera (wyświetlanie)
-const render = Matter.Render.create({
-  element: document.querySelector('.game-world'), // Attach to the game-world div
-  engine: engine,
-  options: {
-    width: 600,  // Set appropriate dimensions
-    height: 600,
-    wireframes: false, // Use full-color rendering
-    background: '#4e6882'
+// 3. Ustawienie renderera
+function setUpRender (){
+  if(window.innerWidth <= 1080){
+    return Matter.Render.create({
+      element: document.querySelector('.game-world'), // Attach to the game-world div
+      engine: engine,
+      options: {
+        width: 400,  // Set appropriate dimensions
+        height: 600,
+        wireframes: false, // Use full-color rendering
+        background: '#4e6882'
+      }
+    });
   }
-});
+  else{
+    return Matter.Render.create({
+      element: document.querySelector('.game-world'), // Attach to the game-world div
+      engine: engine,
+      options: {
+        width: 600,
+        height: 600,
+        wireframes: false,
+        background: '#4e6882'
+      }
+    });
+  }
+}
+const render = setUpRender();
 
-// 4. Tworzenie obiektów fizycznych (np. prostokąty, koła, itp.)
-const ground = Bodies.rectangle(300, 600, 610, 60, { isStatic: true,restitution: 0.9, }); // Statyczna podstawa
-const leftBorder = Bodies.rectangle(0,200,60,800, { isStatic: true,restitution: 0.9, });
-const rightBorder = Bodies.rectangle(600,200,60,800, { isStatic: true,restitution: 0.9, });
+// 4. Tworzenie obiektów fizycznych statycznych
+var ground = Bodies.rectangle(300, 600, 610, 60, { isStatic: true,restitution: 0.9, });
+var leftBorder = Bodies.rectangle(0,200,60,800, { isStatic: true,restitution: 0.9, });
+var rightBorder = Bodies.rectangle(600,200,60,800, { isStatic: true,restitution: 0.9, });
+
+function setUpWorldElements(){
+  if(window.innerWidth <= 1080){
+    ground = Bodies.rectangle(200, 600, 410, 60, { isStatic: true,restitution: 0.9, });
+    leftBorder = Bodies.rectangle(0,200,60,800, { isStatic: true,restitution: 0.9, });
+    rightBorder = Bodies.rectangle(400,200,60,800, { isStatic: true,restitution: 0.9, });
+  }
+}
+
+setUpWorldElements();
 
 // 5. Dodanie obiektów do świata
 World.add(world, [ground,leftBorder,rightBorder]);
